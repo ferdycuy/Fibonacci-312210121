@@ -88,7 +88,7 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-###- Masukkan Sourch code pada menu strings.xml berikut!
+### - Masukkan Sourch code pada menu strings.xml berikut!
 ```
 <resources>
     <string name="app_name">Tugasenam</string>
@@ -101,7 +101,7 @@
     <string name="_0">0</string>
 </resources>
 ```
-### Masukkan sourch code pada menu strings.xml berikut!
+### - Masukkan sourch code pada menu strings.xml berikut!
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -112,7 +112,7 @@
     <color name="colorAccent">#FF4081</color>
 </resources>
 ```
-### Masukkan sourch code pada menu MainActivity.Java berikut!
+### - Masukkan sourch code pada menu MainActivity.Java berikut!
 ```
 package com.example.tugasenam;
 
@@ -161,4 +161,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 ## Berikut hasil run nya
+
+
+https://github.com/ferdycuy/Fibonacci-312210121/assets/115714443/73875c0d-93c5-4218-b942-03547564d0f4
+
+
 
