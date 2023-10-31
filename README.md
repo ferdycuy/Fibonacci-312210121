@@ -4,7 +4,8 @@
 ### Kelas          :TI.22.A1
 ### Dosen Pengampu : Donny Maulana S.Kom., M.M.S.I.
 
-### - Masukkan Sourch code activity_fibonacci.xml berikut!
+
+### - Masukkan Sourch code pada menu activity_fibonacci.xml berikut!
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -87,3 +88,77 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+###- Masukkan Sourch code pada menu strings.xml berikut!
+```
+<resources>
+    <string name="app_name">Tugasenam</string>
+    <string name="button_labe_toast">Toast</string>
+    <string name="button_label_count">Count</string>
+    <string name="count_initial_value">1</string>
+    <string name="toast_message">Bilangan Fibonacci</string>
+    <string name="toast">Toast</string>
+    <string name="count">Count</string>
+    <string name="_0">0</string>
+</resources>
+```
+### Masukkan sourch code pada menu strings.xml berikut!
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#3F5185</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+</resources>
+```
+### Masukkan sourch code pada menu MainActivity.Java berikut!
+```
+package com.example.tugasenam;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView showCount;
+    private int count = 1;
+    private long fibNMinus1 = 1;
+    private long fibNMinus2 = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fibonacci);
+
+        showCount = findViewById(R.id.show_count);
+    }
+    public void showToast(View view){
+        Toast.makeText(this, "Bilangan Fibonacci",
+                Toast.LENGTH_SHORT).show();
+    }
+    public void countUp(View view) {
+        if (count == 0) {
+            showCount.setText("0");
+        } else {
+            long fibCurrent = fibNMinus1 + fibNMinus2;
+            fibNMinus2 = fibNMinus1;
+            fibNMinus1 = fibCurrent;
+            showCount.setText(String.valueOf(fibCurrent));
+        }
+
+        count++;
+    }
+    public void back1(View view){
+        count = 1;
+        fibNMinus1 = 1;
+        fibNMinus2 = 0;
+        showCount.setText(getString(R.string.count_initial_value));
+    }
+}
+```
+## Berikut hasil run nya
+
