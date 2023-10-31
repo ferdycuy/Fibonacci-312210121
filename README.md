@@ -4,7 +4,7 @@
 ### Kelas          :TI.22.A1
 ### Dosen Pengampu : Donny Maulana S.Kom., M.M.S.I.
 
-### - Masukkan Sourc code activity_fibonacci.xml berikut!
+### - Masukkan Sourch code activity_fibonacci.xml berikut!
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
