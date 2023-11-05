@@ -201,7 +201,10 @@ public class MainActivity extends AppCompatActivity {
 ## Berikut hasil run nya
 
 
-https://github.com/ferdycuy/Fibonacci-312210121/assets/115714443/73875c0d-93c5-4218-b942-03547564d0f4
+
+https://github.com/ferdycuy/Fibonacci-312210121/assets/115714443/466598f7-bc14-422e-a1c8-a19e9f0d062f
+
+
 
 
 
