@@ -17,25 +17,42 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/limitEditText"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Masukkan batas limit"
+        android:onClick="setLimit"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button_toast"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/colorPrimary"
         android:onClick="showToast"
-        android:textColor="@android:color/white"
         android:text="@string/toast"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UsingOnClickInXml,VisualLintButtomSize"/>
+        tools:ignore="UsingOnClickInXml,VisualLintButtomSize" />
 
     <Button
         android:id="@+id/button_count"
-        android:layout_width="185dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -52,7 +69,7 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="185dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -121,7 +138,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -129,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
     private int count = 1;
     private long fibNMinus1 = 1;
     private long fibNMinus2 = 0;
+    private long limit = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,10 +154,11 @@ public class MainActivity extends AppCompatActivity {
 
         showCount = findViewById(R.id.show_count);
     }
-    public void showToast(View view){
-        Toast.makeText(this, "Bilangan Fibonacci",
-                Toast.LENGTH_SHORT).show();
+
+    public void showToast(View view) {
+        Toast.makeText(this, "Bilangan Fibonacci", Toast.LENGTH_SHORT).show();
     }
+
     public void countUp(View view) {
         if (count == 0) {
             showCount.setText("0");
@@ -148,18 +166,37 @@ public class MainActivity extends AppCompatActivity {
             long fibCurrent = fibNMinus1 + fibNMinus2;
             fibNMinus2 = fibNMinus1;
             fibNMinus1 = fibCurrent;
-            showCount.setText(String.valueOf(fibCurrent));
+            
+            if (fibCurrent <= limit) {
+                showCount.setText(String.valueOf(fibCurrent));
+            } else {
+                Toast.makeText(this, "batas limit", Toast.LENGTH_SHORT).show();
+                
+            }
+            
         }
-
         count++;
     }
-    public void back1(View view){
+    public void setLimit(View view) {
+        TextView limitEditText = findViewById(R.id.limitEditText);
+        try {
+            limit = Long.parseLong(limitEditText.getText().toString());
+            count = 1;
+            fibNMinus1 = 1;
+            fibNMinus2 = 0;
+            showCount.setText(getString(R.string.count_initial_value));
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void back1(View view) {
         count = 1;
         fibNMinus1 = 1;
         fibNMinus2 = 0;
         showCount.setText(getString(R.string.count_initial_value));
     }
 }
+
 ```
 ## Berikut hasil run nya
 
