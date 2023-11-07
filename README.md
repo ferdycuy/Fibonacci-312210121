@@ -119,7 +119,7 @@
     <string name="_0">0</string>
 </resources>
 ```
-### - Masukkan sourch code pada menu strings.xml berikut!
+### - Masukkan sourch code pada menu colors.xml berikut!
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -128,6 +128,9 @@
     <color name="colorPrimary">#3F5185</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color1">#FF0000</color>
+    <color name="color2">#00FF00</color>
+    <color name="color3">#0000FF</color>
 </resources>
 ```
 ### - Masukkan sourch code pada menu MainActivity.Java berikut!
@@ -162,18 +165,33 @@ public class MainActivity extends AppCompatActivity {
     public void countUp(View view) {
         if (count == 0) {
             showCount.setText("0");
+        } else if (count == 1) {
+            showCount.setText("1");
         } else {
             long fibCurrent = fibNMinus1 + fibNMinus2;
             fibNMinus2 = fibNMinus1;
             fibNMinus1 = fibCurrent;
-            
+            // Mengatur warna teks berdasarkan angka Fibonacci
+            int colorResId = R.color.color1; // Warna default
+            switch (count % 3) {
+                case 1:
+                    colorResId = R.color.color1; // Warna merah
+                    break;
+                case 2:
+                    colorResId = R.color.color2; // Warna hijau
+                    break;
+                case 0:
+                    colorResId = R.color.color3; // Warna biru
+                    break;
+            }
+            showCount.setTextColor(getResources().getColor(colorResId));
             if (fibCurrent <= limit) {
                 showCount.setText(String.valueOf(fibCurrent));
             } else {
                 Toast.makeText(this, "batas limit", Toast.LENGTH_SHORT).show();
-                
+
             }
-            
+
         }
         count++;
     }
@@ -196,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
         showCount.setText(getString(R.string.count_initial_value));
     }
 }
+
 
 ```
 ## Berikut hasil run nya
